@@ -1,15 +1,17 @@
-import java.text.ParseException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        Scanner scanner = new Scanner(System.in);
-        String type = scanner.nextLine();
-        String[] inputDate = scanner.nextLine().split(" ");
-        scanner.close();
+        String type = br.readLine();
+        String[] inputDate = br.readLine().split(" ");
+        br.close();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate start = LocalDate.parse(inputDate[0], formatter);
